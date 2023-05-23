@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="shortcut icon" href="../img/Logo Amazing Events.png" type="image/x-icon">
+    <title>Amazing Events / Stats</title>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-dark">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <a class="navbar-brand" href="#"><img class="logo" src="../img/Logo Amazing Events.png" alt="Logo"></a>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="../../index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./upcoming.html">Upcoming Events</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./past.html">Past Events</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./contact.html">Contact</a>
+              </li>              
+              <li class="nav-item">
+                <a class="nav-link" href="#">Stats</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+
+      
+      <section class="carouselSection formSEction"> 
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">            
+          <h1>Stats</h1>
+          <div class="carousel-item active">
+            <img src="../img/Books.jpg" class="d-block w-100  imgTopChange" alt="booksEvent">
+          </div>
+          <div class="carousel-item">
+            <img src="../img/Cine7.jpg" class="d-block w-100" alt="cinemaEvent">
+          </div>
+          <div class="carousel-item">
+            <img src="../img/Concierto de musica1.jpg" class="d-block w-100" alt="musicConcertEvent">
+          </div>
+          <div class="carousel-item active">
+            <img src="../img/Feria de comidas7.jpg" class="d-block w-100 imgTopChange" alt="foodEvent">
+          </div>
+          <div class="carousel-item active">
+            <img src="../img/Fiesta de disfraces1.jpg" class="d-block w-100" alt="customEvent">
+          </div>
+          <div class="carousel-item active">
+            <img src="../img/Maraton3.jpg" class="d-block w-100 imgTopChange" alt="sprintEvent">
+          </div>
+          <div class="carousel-item active ">
+            <img src="../img/Salida al museo5.jpg" class="d-block w-100" alt="museumEvent">
+          </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </section>  
+
+    <main id="app">
+        <section class="tableSection d-flex flex-column align-items-center pb-2 pt-2 container">
+
+      
+          <div id="tableStatics">
+            <h3>Event Statics</h3>
+          <table class="table">
+            <thead>
+              <tr>
+                <th colspan ="2" scope="col">Events with the highest percentage of attendace</th>
+                <th colspan ="2" scope="col">Events with the lowest percentage of attendace</th>
+                <th colspan ="2" scope="col">Event with larger capacity</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan ="2" id="highestAttendance">{{highestAttendanceEvent.name}} %{{highestAttendanceEvent.assistance}}</td>
+                <td colspan ="2" id="lowestAttendace">{{lowestAttendaceEvent.name}} %{{lowestAttendaceEvent.assistance}}</td>
+                <td colspan ="2" id="highestCapacity">{{largestCapacityEvent.name}} {{largestCapacityEvent.capacity}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+          <div id="tableUpcoming" class="m-3 d-flex flex-column">
+            <h3>Upcoming events statistics by category</h3>
+          </div>
+            <table class="table">
+
+              <thead colspan="6">
+                <tr>
+                  <th>Category</th>
+                  <th>Revenues</th>
+                  <th>% of attendance</th>
+                </tr>
+              </thead>
+
+              <tbody>
+
+               <tr v-for="data of upData">
+                  <td>{{data.category}}</td>
+                  <td>${{data.totalRevenue}}</td>
+                  <td>%{{data.averageAssistance}}</td>
+                </tr>
+
+              </tbody>
+
+
+            </table>
+          
+          
+  
+          <div id="tablePast" class="m-3 d-flex flex-column">
+            <h3>Past events statistics by category</h3>
+          </div>
+          <table class="table">
+
+            <thead>
+              <tr>
+                <th >Category</th>
+                <th >Revenues</th>
+                <th >% of attendance</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+
+            <tbody>
+
+             <tr v-for="data of pastData">
+                <td>{{data.category}}</td>
+                <td>${{data.totalRevenue}}</td>
+                <td>%{{data.averageAssistance}}</td>
+              </tr>
+              
+            </tbody>
+
+
+          </table>
+
+          </section>
+
+        </main>
+
+          <footer class="d-flex flex-row justify-content-between">
+            <div id="divFooter">
+            <a href="#"> <img class="logo1" src="../img/fb-logo.png" alt="facebook"></a>
+            <a href="#"><img class="logo1" src="../img/ig_logo.png" alt="instagram"></a>
+            <a href="#"><img class="logo1" src="../img/wp_logo.png" alt="whatssapp"></a>
+          </div>
+          <div>
+            <h3>Cohort47</h3>
+          </div>
+          </footer>
+        
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>    
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="../JSpages/stats.js"></script>
+</body>
+</html>
